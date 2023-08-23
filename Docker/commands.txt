@@ -1,0 +1,4 @@
+# Arquivo apenas pra anotas alguns comandos
+
+1 - Pra construir baseado no compose.yml: docker compose up -d 
+2 - Baixar o shell minimo e rodar: mongosh.exe mongodb://localhost:27017

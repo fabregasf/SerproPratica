@@ -1,0 +1,27 @@
+[{
+  "_id": {
+    "$oid": "64e61436c3ea5752221bd414"
+  },
+  "id": 1,
+  "nome": "Fabricio",
+  "setor": "TI",
+  "funcao": "Analista de Sistemas"
+},
+{
+  "_id": {
+    "$oid": "64e61436c3ea5752221bd415"
+  },
+  "id": 2,
+  "nome": "Isaias",
+  "setor": "TI",
+  "funcao": "Analista de Sistemas"
+},
+{
+  "_id": {
+    "$oid": "64e61436c3ea5752221bd416"
+  },
+  "id": 3,
+  "nome": "Breno",
+  "setor": "DID",
+  "funcao": "Secretario"
+}]

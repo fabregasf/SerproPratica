@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <div class="container">
+            <form method="POST" action="/" class="form">
+                <div class="form-group">
+                  <label for="meuUsuario">Meu usuario</label>
+                  <input type="text" class="form-control" id="meuUsuario" aria-describedby="usuarioHelp" placeholder="Entre seu usuario">
+                  <small id="emailHelp" class="form-text text-muted">Voce tem apenas 3 tentativas de acesso</small>
+                </div>
+                <div class="form-group">
+                  <label for="usuarioPassword">Senha</label>
+                  <input type="password" class="form-control" id="minhaPassword" placeholder="Senha">
+                </div>               
+                <button type="submit" class="btn btn-primary">Login!</button>
+            </form>
+
+        </div>
+
+        <script type="text/javascript" src="./consulta.js"></script>
+    </body>
+</html>
