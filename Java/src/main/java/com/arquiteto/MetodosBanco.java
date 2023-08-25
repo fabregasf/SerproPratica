@@ -15,5 +15,5 @@ import java.sql.Connection;
 
 public interface MetodosBanco<T> {
     public T getDatabaseObject(String uri);
-    
+    public void close();
 }

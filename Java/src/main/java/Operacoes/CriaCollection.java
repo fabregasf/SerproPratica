@@ -4,6 +4,7 @@
  */
 package Operacoes;
 
+import com.mongodb.MongoException;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.model.CreateCollectionOptions;
@@ -16,20 +17,51 @@ import org.bson.Document;
 public class CriaCollection {
     
     private CreateCollectionOptions options;    
+    private MongoDatabase banco;
     
-    public CriaCollection(MongoDatabase instancia) {
-        instancia.createCollection(
-                "funcionarios" );
-        Document document = new Document();        
+    public CriaCollection(MongoClient instancia) {
         
-        MongoClient cli = null;
-        //cli.getDatabase("empresa").createCollection(string);
-        
-        
-         
+        banco = instancia.getDatabase("empresa");      
+        Document document = new Document();    
          
     }
     
-    
+    public void criaDefault(){
+        try {
+            // adicionando dados            
+            getBanco().createCollection("funcionarios" );                       
+        }
+        catch(MongoException ex){        
+            ex.printStackTrace(System.err);            
+        }  
+    }
+
+    /**
+     * @return the options
+     */
+    public CreateCollectionOptions getOptions() {
+        return options;
+    }
+
+    /**
+     * @param options the options to set
+     */
+    public void setOptions(CreateCollectionOptions options) {
+        this.options = options;
+    }
+
+    /**
+     * @return the banco
+     */
+    public MongoDatabase getBanco() {
+        return banco;
+    }
+
+    /**
+     * @param banco the banco to set
+     */
+    public void setBanco(MongoDatabase banco) {
+        this.banco = banco;
+    }
     
 }

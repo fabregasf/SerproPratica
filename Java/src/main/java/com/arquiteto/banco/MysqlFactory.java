@@ -37,8 +37,8 @@ public class MysqlFactory implements MetodosBanco{
 
     @Override
     public Connection getDatabaseObject(String uri) {
-        try{        
-//            Class.forName("com.mysql.jdbc.Driver");
+        try{        // nao preciso nessa versão do java
+            // Class.forName("com.mysql.jdbc.Driver"); 
             this.conn = DriverManager.getConnection(uri);
         }
         catch (SQLException e) { 
@@ -46,7 +46,6 @@ public class MysqlFactory implements MetodosBanco{
                         System.out.println("SQLState: " + e.getSQLState());
                         System.out.println("VendorError: " + e.getErrorCode());
 	}       
-        
         return  this.conn;	
     }
     
@@ -71,10 +70,14 @@ public class MysqlFactory implements MetodosBanco{
                     System.out.println("Cause: " + t);
                     t = t.getCause();
                 }
-            }
-        
-        }
-    
+            }        
+        }    
+    }
+
+    @Override
+    public void close() {
+        closeConnection();     
+        System.out.println("Fechei a conexão com o mysql");
     }
     
 }

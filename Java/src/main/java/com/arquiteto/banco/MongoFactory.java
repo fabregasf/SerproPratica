@@ -27,6 +27,7 @@ public class MongoFactory implements MetodosBanco{
     
     public static MongoFactory factory = null;	
     private MongoDatabase mongodb; 
+    private MongoClient mongoClient;
     
     public static MongoFactory getInstance() { 
 	if (factory == null) 
@@ -36,10 +37,10 @@ public class MongoFactory implements MetodosBanco{
     
     private MongoFactory(){
         mongodb = null;
-    }
+    }        
     
     @Override
-    public MongoDatabase getDatabaseObject(String uri) {              
+    public MongoClient getDatabaseObject(String uri) {              
         
         // Construct a ServerApi instance using the ServerApi.builder() method
         ServerApi serverApi = ServerApi.builder()
@@ -49,24 +50,13 @@ public class MongoFactory implements MetodosBanco{
                 .applyConnectionString(new ConnectionString(uri))
                 .serverApi(serverApi)
                 .build();
-        MongoClient mongoClient = MongoClients.create(settings);
-        mongodb = mongoClient.getDatabase("empresa");
-        
-        try {
-            mongodb.createCollection(
-                "funcionarios" );
-            
-        }
-        catch(MongoException ex){        
-            //ex.printStackTrace(System.err);
-            Throwable t = ex.getCause();
-        }
-        
-        return mongodb;
+        mongoClient = MongoClients.create(settings);               
+        return mongoClient;
     }  
-    
-    
-    
-     
+
+    @Override
+    public void close() {
+        this.mongoClient.close();
+    }  
     
 }

@@ -1,0 +1,4 @@
+Aqui eu tenho um linguição de bytes
+Aqui eu tenho outro linguição
+
+Aqui eu tenho o linguição final
