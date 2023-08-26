@@ -5,9 +5,11 @@
 package arquivo;
 
 import fabricio.com.javaio.JavaIO;
+import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -36,10 +38,12 @@ public class ArquivoPrincipal {
         try {          
             // Posso 'picar' o caminho usando esse método  
             // Geralmente se usa endereços fixos (c:, /mnt)
-            Path path = Paths.get("C:\\filadebytes.txt");
+            Path path = Paths.get("D:\\java-pratica\\filadebytes.txt");
+            String s ="Eu aprendi a fazer chá \nE agora aprendi a programar";
             
             if (!Files.exists(path)){
                 Files.createFile(path);
+                Files.write(path, s.getBytes());
             }
             
             BufferedReader reader = Files.newBufferedReader(path, StandardCharsets.UTF_8);

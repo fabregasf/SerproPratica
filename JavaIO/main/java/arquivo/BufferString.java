@@ -47,10 +47,15 @@ public class BufferString {
                 System.out.println((char)br.read());
                 
                 // marco este ponto, e o contador de bytes não anda
+                // leio apenas a linha de cima
                 br.mark(0);
                 System.out.println((char)br.read());
                 br.reset();
                 System.out.println((char)br.read());
+                System.out.println((char)br.read());
+                
+                // leio a linha de baixo, pulo o caracter especial
+                br.skip(2);
                 System.out.println((char)br.read());
                 
 
