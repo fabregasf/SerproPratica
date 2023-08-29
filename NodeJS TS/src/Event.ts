@@ -25,7 +25,7 @@ const comer = new Promise((resolve, reject) => {
 })
 
 // vou entrar no then, apenas se o valor acima for >= 2
-const eventos = new Promise((resolveOut) => {
+export const eventos = new Promise((resolveOut) => {
     resolveOut(
         comer.then ((data) => {
             if (data == 2) {
@@ -38,8 +38,8 @@ const eventos = new Promise((resolveOut) => {
     );
 
 });
-
-exports.eventos = eventos
+//module.exports = {eventos, comer}
+// exports.eventos = eventos
 
 
 

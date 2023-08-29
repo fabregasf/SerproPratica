@@ -3,7 +3,7 @@
     Algumas implementações em nodejs e typescript
 }*/
 exports.__esModule = true;
-exports.Eventos = void 0;
+exports.eventos = exports.Eventos = void 0;
 var Eventos = /** @class */ (function () {
     function Eventos() {
     }
@@ -20,7 +20,7 @@ var comer = new Promise(function (resolve, reject) {
     }
 });
 // vou entrar no then, apenas se o valor acima for >= 2
-var eventos = new Promise(function (resolveOut) {
+exports.eventos = new Promise(function (resolveOut) {
     resolveOut(comer.then(function (data) {
         if (data == 2) {
             console.log("idade pode começar a comer papinha");
@@ -29,4 +29,5 @@ var eventos = new Promise(function (resolveOut) {
         console.log("Deu erro: (${reason})");
     }));
 });
-exports.eventos = eventos;
+//module.exports = {eventos, comer}
+// exports.eventos = eventos
